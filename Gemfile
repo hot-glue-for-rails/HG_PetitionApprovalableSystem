@@ -37,3 +37,4 @@ gem 'turbo-rails'
 # Use Redis for Action Cable
 gem 'redis', '~> 4.0'
 gem 'font-awesome-sass', '~> 5.15.1'
+gem 'devise'

@@ -38,3 +38,5 @@ gem 'turbo-rails'
 gem 'redis', '~> 4.0'
 gem 'font-awesome-sass', '~> 5.15.1'
 gem 'devise'
+
+gem 'bootstrap', '~> 5.1.3'

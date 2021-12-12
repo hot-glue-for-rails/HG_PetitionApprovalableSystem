@@ -36,3 +36,4 @@ gem 'hot-glue', path: '/Users/jason/Work/Hot_Glue/hot-glue-private'
 gem 'turbo-rails'
 # Use Redis for Action Cable
 gem 'redis', '~> 4.0'
+gem 'font-awesome-sass', '~> 5.15.1'

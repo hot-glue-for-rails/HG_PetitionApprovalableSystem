@@ -1,0 +1,20 @@
+<%= link_to "<i class='fa fa-arrow-circle-left  2x'></i> Back to list".html_safe, petitions_path %>
+
+<%= turbo_frame_tag "petition__#{@petition.id}" do  %>
+
+  <div class="cell editable" style="position: relative;">
+
+    <% if @petition.errors.any? %>
+      <%= render(partial: "errors", locals: {resource: @petition }) %>
+    <% end %>
+
+    <h2>Editing <%= @petition.to_label %></h2>
+    <%= form_with model: @petition, url: petition_path(@petition) do |f| %>
+    <%=  render partial: "form",  locals: {:petition => @petition, f: f} %>
+    <% end %>
+
+  </div>
+
+<% end %>
+
+

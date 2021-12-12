@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col form-group #{'alert-danger' if petition.errors.details.keys.include?(:question1)}"><%= f.text_area :question1, class: 'form-control', autocomplete: 'off', cols: 40, rows: '5' %><label class='form-text'>Question1</label></div>
+<div class="col form-group #{'alert-danger' if petition.errors.details.keys.include?(:question2)}"><%= f.text_area :question2, class: 'form-control', autocomplete: 'off', cols: 40, rows: '5' %><label class='form-text'>Question2</label></div>
+<div class="col form-group #{'alert-danger' if petition.errors.details.keys.include?(:question3)}"><%= f.text_area :question3, class: 'form-control', autocomplete: 'off', cols: 40, rows: '5' %><label class='form-text'>Question3</label></div>
+
+  <div class="">
+    <%= link_to "Cancel", petitions_path,  {class: "btn btn-secondary"} %>
+    <%= f.submit "Save", class: "btn btn-primary pull-right" %>
+  </div>
+</div>

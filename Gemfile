@@ -32,7 +32,7 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'hot-glue'
+gem 'hot-glue', path: '/Users/jason/Work/Hot_Glue/hot-glue-private'
 gem 'turbo-rails'
 # Use Redis for Action Cable
 gem 'redis', '~> 4.0'

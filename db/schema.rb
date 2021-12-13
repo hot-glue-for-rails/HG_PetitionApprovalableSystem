@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_12_181250) do
+ActiveRecord::Schema.define(version: 2021_12_13_150653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "petitions", force: :cascade do |t|
     t.integer "user_id"
-    t.text "question1"
-    t.text "question2"
-    t.text "question3"
+    t.text "answer1"
+    t.text "answer2"
+    t.text "answer3"
     t.datetime "accepted_at"
     t.datetime "rejected_at"
     t.datetime "created_at", precision: 6, null: false

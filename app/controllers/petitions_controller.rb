@@ -40,9 +40,6 @@ class PetitionsController < ApplicationController
   end
 
   def create
-    if current_user.petitions.any?
-      raise "Can't make more than 1 petition per user"
-    end
     modified_params = modify_date_inputs_on_params(petition_params.dup.merge!(user: current_user ) , current_user)
     @petition = Petition.create(modified_params)
 
@@ -82,7 +79,7 @@ class PetitionsController < ApplicationController
   end
 
   def petition_params
-    params.require(:petition).permit( [:question1, :question2, :question3] )
+    params.require(:petition).permit( [:answer1, :answer2, :answer3] )
   end
 
   def default_colspan

@@ -4,9 +4,9 @@ describe "interaction for PetitionsController", type: :feature do
   include HotGlue::ControllerHelper
   let(:current_user) {create(:user)}
     
-  let!(:petition1) {create(:petition, user: current_user , question1:  FFaker::Lorem.paragraphs(10).join(), 
-      question2:  FFaker::Lorem.paragraphs(10).join(), 
-      question3:  FFaker::Lorem.paragraphs(10).join() )}
+  let!(:petition1) {create(:petition, user: current_user , answer1:  FFaker::Lorem.paragraphs(10).join(), 
+      answer2:  FFaker::Lorem.paragraphs(10).join(), 
+      answer3:  FFaker::Lorem.paragraphs(10).join() )}
    
   before(:each) do
     login_as(current_user)
@@ -27,18 +27,18 @@ describe "interaction for PetitionsController", type: :feature do
       click_link "New Petition"
       expect(page).to have_selector(:xpath, './/h3[contains(., "New Petition")]')
 
-      new_question1 = 'new_test-email@nowhere.com' 
-      find("[name='petition[question1]']").fill_in(with: new_question1)
-      new_question2 = 'new_test-email@nowhere.com' 
-      find("[name='petition[question2]']").fill_in(with: new_question2)
-      new_question3 = 'new_test-email@nowhere.com' 
-      find("[name='petition[question3]']").fill_in(with: new_question3)
+      new_answer1 = 'new_test-email@nowhere.com' 
+      find("[name='petition[answer1]']").fill_in(with: new_answer1)
+      new_answer2 = 'new_test-email@nowhere.com' 
+      find("[name='petition[answer2]']").fill_in(with: new_answer2)
+      new_answer3 = 'new_test-email@nowhere.com' 
+      find("[name='petition[answer3]']").fill_in(with: new_answer3)
       click_button "Save"
       expect(page).to have_content("Successfully created")
 
-      expect(page).to have_content(new_question1)
-      expect(page).to have_content(new_question2)
-      expect(page).to have_content(new_question3)
+      expect(page).to have_content(new_answer1)
+      expect(page).to have_content(new_answer2)
+      expect(page).to have_content(new_answer3)
 
     end
   end
@@ -50,19 +50,19 @@ describe "interaction for PetitionsController", type: :feature do
       find("a.edit-petition-button[href='/petitions/#{petition1.id}/edit']").click
 
       expect(page).to have_content("Editing #{petition1.to_label || "(no name)"}")
-      new_question1 = FFaker::Lorem.paragraphs(3).join 
-      find("textarea[name='petition[question1]']").fill_in(with: new_question1)
-      new_question2 = FFaker::Lorem.paragraphs(3).join 
-      find("textarea[name='petition[question2]']").fill_in(with: new_question2)
-      new_question3 = FFaker::Lorem.paragraphs(3).join 
-      find("textarea[name='petition[question3]']").fill_in(with: new_question3)
+      new_answer1 = FFaker::Lorem.paragraphs(3).join 
+      find("textarea[name='petition[answer1]']").fill_in(with: new_answer1)
+      new_answer2 = FFaker::Lorem.paragraphs(3).join 
+      find("textarea[name='petition[answer2]']").fill_in(with: new_answer2)
+      new_answer3 = FFaker::Lorem.paragraphs(3).join 
+      find("textarea[name='petition[answer3]']").fill_in(with: new_answer3)
       click_button "Save"
       within("turbo-frame#petition__#{petition1.id} ") do
 
 
-        expect(page).to have_content(new_question1)
-        expect(page).to have_content(new_question2)
-        expect(page).to have_content(new_question3)
+        expect(page).to have_content(new_answer1)
+        expect(page).to have_content(new_answer2)
+        expect(page).to have_content(new_answer3)
 
       end
     end

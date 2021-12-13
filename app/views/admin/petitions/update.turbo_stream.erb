@@ -1,0 +1,11 @@
+<%= turbo_stream.replace "petitions-list" do %>
+  <%= render partial: 'admin/petitions/list', locals: {petitions: @petitions } %>
+<% end %>
+
+
+<%= turbo_stream.replace "flash_notices" do %>
+  <%= render partial: "layouts/flash_notices" %>
+  <% if @petition.errors.any? %>
+  <%= render partial: "errors", locals: {resource: @petition} %>
+  <% end %>
+<% end %>

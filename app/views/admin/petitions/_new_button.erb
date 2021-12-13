@@ -1,0 +1,5 @@
+<%= turbo_frame_tag "petition-new" do %>
+  <div>
+    <%= link_to "New Petition",  new_admin_petition_path, disable_with: "Loading...", class: "new-petition-button btn btn-primary pull-right  " %>
+  </div>
+<% end %>

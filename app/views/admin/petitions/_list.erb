@@ -1,0 +1,37 @@
+<%= turbo_frame_tag "petitions-list"   do %>
+  <div class="container-fluid scaffold-list">
+    <h4>PETITIONS</h4>
+
+    
+
+    
+    <div class="row scaffold-row">
+      <div class='col'>User</div>
+<div class='col'>Question1</div>
+<div class='col'>Question2</div>
+<div class='col'>Question3</div>
+<div class='col'>Accepted at</div>
+<div class='col'>Rejected at</div>
+      
+
+      
+
+      <div class=' scaffold-col-heading scaffold-col-heading-buttons col-md-2' >
+
+      </div>
+    </div>
+
+      <% if petitions.empty? %>
+    <div>
+        None
+    </div>
+      <% end %>
+      <% petitions.each do |petition| %>
+        <%= render partial: 'admin/petitions/line', locals: {petition: petition } %>
+      <% end %>
+    <% if petitions.respond_to?(:total_pages) %><%= paginate(petitions) %> <% end %>
+
+    </div>
+      
+  </div>
+<% end %>

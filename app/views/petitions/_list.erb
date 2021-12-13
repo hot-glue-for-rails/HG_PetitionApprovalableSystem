@@ -1,9 +1,16 @@
 <%= turbo_frame_tag "petitions-list"   do %>
   <div class="container-fluid scaffold-list">
-    
 
-    <%= render partial: "petitions/new_button", locals: {}%>
-
+    <% unless current_user.petitions.any? %>
+      <%= render partial: "petitions/new_button", locals: {} %>
+    <% else %>
+    <p>
+      Your petition was submitted on <%= current_user.petitions.last.created_at.strftime("%m/%d/%Y") %>
+    </p>
+    <p>
+      We will be in touch with you at <%= current_user.email %>.
+    </p>
+    <% end %>
     
   </div>
 <% end %>

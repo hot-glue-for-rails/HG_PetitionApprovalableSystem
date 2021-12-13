@@ -1,0 +1,8 @@
+<%= turbo_frame_tag "petition-new" do %>
+<h3>
+  New Petition
+  </h3>
+  <%= form_with model:  petition, url: admin_petitions_path(), method: "post" do  |f| %>
+    <%=  render partial: "admin/petitions/form", locals: { petition:  petition, f: f} %>
+  <% end %>
+<% end %>

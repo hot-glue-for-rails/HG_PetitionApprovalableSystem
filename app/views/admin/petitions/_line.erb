@@ -1,0 +1,11 @@
+
+<%= turbo_frame_tag "petition__#{ petition.id }" do  %>
+  <div class='row scaffold-row' data-id='<%= petition.id %>' data-edit='false'>
+    <%= render partial: 'admin/petitions/show', locals: { petition: petition } %>
+
+  </div>
+<% end %>
+
+
+
+

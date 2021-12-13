@@ -40,6 +40,9 @@ class PetitionsController < ApplicationController
   end
 
   def create
+    if current_user.petitions.any?
+      raise "Can't make more than 1 petition per user"
+    end
     modified_params = modify_date_inputs_on_params(petition_params.dup.merge!(user: current_user ) , current_user)
     @petition = Petition.create(modified_params)
 

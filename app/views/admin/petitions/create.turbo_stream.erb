@@ -1,0 +1,18 @@
+<% if @petition.errors.none? %>
+  <%= turbo_stream.replace "petitions-list" do %>
+  <%= render partial: "list", locals: {petitions: @petitions} %>
+  <% end %>
+  <% end %>
+  <%= turbo_stream.replace "petition-new" do %>
+  <% if @petition.errors.none? %>
+  <%= render partial: "new_button", locals: {} %>
+  <% else %>
+  <%= render partial: "new_form", locals: {petition: @petition  } %>
+  <% end %>
+  <% end %>
+  <%= turbo_stream.replace "flash_notices" do %>
+  <%= render partial: "layouts/flash_notices" %>
+  <% if @petition.errors.any? %>
+  <%= render partial: "errors", locals: {resource: @petition} %>
+  <% end %>
+<% end %>

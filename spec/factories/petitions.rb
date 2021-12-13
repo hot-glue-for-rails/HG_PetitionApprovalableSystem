@@ -1,10 +1,10 @@
 FactoryBot.define do
   factory :petition do
     user_id { 1 }
-    question1 { "MyText" }
-    question2 { "MyText" }
-    question3 { "MyText" }
-    accepted_at { "2021-12-12 13:12:50" }
-    rejected_at { "" }
+    answer1 { "MyText" }
+    answer2 { "MyText" }
+    answer3 { "MyText" }
+    accepted_at { "2021-12-13 10:06:53" }
+    rejected_at { "2021-12-13 10:06:53" }
   end
 end

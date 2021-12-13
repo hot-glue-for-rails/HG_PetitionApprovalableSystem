@@ -1,0 +1,17 @@
+<div class="row">
+  <div class='col form-group <%= 'alert-danger' if petition.errors.details.keys.include?(:user) %>' >
+<%= f.collection_select(:user_id, User.all, :id, :name, {prompt: true, selected: @petition.user_id }, class: 'form-control') %>
+<label class='small form-text text-muted'>User</label></div>
+<div class="col form-group <%= 'alert-danger' if petition.errors.details.keys.include?(:question1) %>"><%= @petition.question1 %><label class='form-text'>Question1</label></div>
+<div class="col form-group <%= 'alert-danger' if petition.errors.details.keys.include?(:question2) %>"><%= @petition.question2 %><label class='form-text'>Question2</label></div>
+<div class="col form-group <%= 'alert-danger' if petition.errors.details.keys.include?(:question3) %>"><%= @petition.question3 %><label class='form-text'>Question3</label></div>
+<div class='col form-group <%='alert-danger' if @petition.errors.details.keys.include?(:accepted_at)%>' > 
+<%= datetime_field_localized(f, :accepted_at, petition.accepted_at, 'Accepted at', nil) %></div>
+<div class='col form-group <%='alert-danger' if @petition.errors.details.keys.include?(:rejected_at)%>' > 
+<%= datetime_field_localized(f, :rejected_at, petition.rejected_at, 'Rejected at', nil) %></div>
+
+  <div class="">
+    <%= link_to "Cancel", admin_petitions_path,  {class: "btn btn-secondary"} %>
+    <%= f.submit "Save", class: "btn btn-primary pull-right" %>
+  </div>
+</div>
